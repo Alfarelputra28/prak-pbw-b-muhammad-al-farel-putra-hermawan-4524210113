@@ -1,0 +1,148 @@
+# Tugas 3 Praktikum Pemrograman Berbasis Web
+
+## Nama
+
+Muhammad Al Farel Putra Hermawan
+
+## NPM
+
+4524210113
+
+## Program Studi
+
+Teknik Informatika
+
+## Tugas 3
+
+Praktikum Pertemuan 3 - PHP dan MySQL
+
+---
+
+## 1. Tujuan
+
+Tugas ini bertujuan untuk menjalankan program PHP yang terhubung dengan MySQL serta melakukan beberapa modifikasi pada database akademik.
+
+Program dapat membuat database, membuat tabel, dan melakukan pengecekan serta perubahan struktur tabel.
+
+---
+
+## 2. Modifikasi Program
+
+### Modifikasi 1 - Menambahkan Kolom Telepon
+
+Pada tabel `mahasiswa` ditambahkan kolom baru:
+
+```text
+telepon VARCHAR(15)
+```
+
+Penambahan dilakukan menggunakan `ALTER TABLE` setelah melakukan pengecekan apakah kolom tersebut sudah tersedia.
+
+### Modifikasi 2 - Menambahkan Tabel Kartu Mahasiswa
+
+Ditambahkan tabel baru bernama `kartu_mahasiswa`.
+
+Tabel ini memiliki beberapa field:
+
+* `id`
+* `nim`
+* `tanggal_terbit`
+* `status`
+
+Kolom `nim` digunakan sebagai foreign key yang terhubung dengan tabel `mahasiswa`.
+
+---
+
+## 3. Penjelasan Bagian Kode
+
+### 1. Koneksi Database
+
+```php
+require_once 'koneksi.php';
+```
+
+Digunakan untuk menghubungkan program dengan database MySQL melalui file `koneksi.php`.
+
+### 2. Membuat Database
+
+```php
+CREATE DATABASE IF NOT EXISTS akademik
+```
+
+Digunakan untuk membuat database `akademik` jika database tersebut belum tersedia.
+
+### 3. Membuat Tabel
+
+Program menggunakan `CREATE TABLE IF NOT EXISTS` untuk membuat tabel `mahasiswa`, `dosen`, dan `mata_kuliah`.
+
+### 4. Menambahkan Kolom Telepon
+
+```php
+ALTER TABLE mahasiswa ADD COLUMN telepon VARCHAR(15)
+```
+
+Digunakan untuk menambahkan kolom `telepon` pada tabel `mahasiswa`.
+
+Sebelum melakukan penambahan, program mengecek terlebih dahulu apakah kolom `telepon` sudah tersedia.
+
+### 5. Foreign Key Kartu Mahasiswa
+
+Pada tabel `kartu_mahasiswa`, kolom `nim` dibuat sebagai foreign key yang menghubungkan data kartu mahasiswa dengan tabel `mahasiswa`.
+
+---
+
+## 4. Screenshot Sebelum
+
+Screenshot sebelum modifikasi program:
+
+![Screenshot Sebelum](Screenshot/sebelum.png)
+
+---
+
+## 5. Screenshot Sesudah
+
+Screenshot setelah dilakukan modifikasi:
+
+![Screenshot Sesudah](Screenshot/sesudah.png)
+
+---
+
+## 6. Error, Penyebab, dan Perbaikan
+
+### Error
+
+Pada percobaan awal, muncul keterangan:
+
+```text
+Kolom telepon belum tersedia.
+```
+
+### Penyebab
+
+Tabel `mahasiswa` sudah dibuat sebelumnya menggunakan `CREATE TABLE IF NOT EXISTS`.
+
+Karena tabel tersebut sudah ada, penambahan `telepon` di dalam perintah `CREATE TABLE` tidak otomatis mengubah struktur tabel yang sudah ada.
+
+### Perbaikan
+
+Program diperbaiki dengan melakukan pengecekan menggunakan:
+
+```php
+SHOW COLUMNS FROM mahasiswa LIKE 'telepon'
+```
+
+Jika kolom belum ada, program menjalankan:
+
+```php
+ALTER TABLE mahasiswa ADD COLUMN telepon VARCHAR(15)
+```
+
+Setelah diperbaiki, kolom `telepon` berhasil ditambahkan.
+
+---
+
+## 7. Kesimpulan
+
+Tugas 3 berhasil dijalankan menggunakan PHP dan MySQL. Program berhasil membuat database dan tabel akademik serta berhasil dilakukan dua modifikasi, yaitu menambahkan kolom `telepon` pada tabel `mahasiswa` dan membuat tabel `kartu_mahasiswa`.
+
+Program juga sudah diuji kembali dan dapat berjalan tanpa error.
