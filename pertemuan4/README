@@ -2,7 +2,7 @@
 
 ## 1. Tujuan
 
-Tugas ini bertujuan untuk memahami operasi database menggunakan PHP dan MySQL, meliputi INSERT, SELECT, UPDATE, GROUP BY, verifikasi data, dan DELETE.
+Tugas ini bertujuan untuk memahami operasi database menggunakan PHP dan MySQL, meliputi INSERT, SELECT, UPDATE, GROUP BY, dan verifikasi data.
 
 ## 2. Modifikasi Program
 
@@ -10,42 +10,44 @@ Tugas ini bertujuan untuk memahami operasi database menggunakan PHP dan MySQL, m
 
 Menambahkan validasi agar IPK mahasiswa harus berada pada rentang 0 sampai 4. Jika nilai tidak sesuai, data tidak diproses.
 
-**Modifikasi 2 – Filter berdasarkan program studi**
+**Modifikasi 2 – Filter berdasarkan Program Studi**
 
-Menambahkan kondisi `AND prodi = ?` pada query SELECT sehingga hasil dapat difilter berdasarkan program studi dan IPK.
+Menambahkan kondisi `AND prodi = ?` pada query SELECT sehingga data yang ditampilkan dapat difilter berdasarkan program studi dan IPK.
 
-**Modifikasi 3 – Penanganan hasil query**
+**Modifikasi 3 – Predikat IPK**
 
-Menambahkan pengecekan keberhasilan query dan pesan jika data tidak ditemukan atau sudah tersedia.
+Menambahkan kondisi untuk menentukan predikat berdasarkan nilai IPK. Jika IPK minimal 3.80 maka mendapatkan predikat **Dengan Pujian (Cumlaude)**, IPK minimal 3.50 mendapatkan predikat **Sangat Memuaskan**, IPK minimal 3.00 mendapatkan predikat **Memuaskan**, dan selain itu mendapatkan predikat **Cukup**.
 
 ## 3. Penjelasan Lima Bagian Kode
 
-1. **Koneksi database:** `require_once` digunakan untuk memuat file koneksi.
-2. **INSERT:** Memasukkan data mahasiswa ke tabel.
-3. **SELECT:** Menampilkan data mahasiswa sesuai kriteria.
-4. **UPDATE:** Memperbarui nilai IPK berdasarkan NIM.
-5. **GROUP BY:** Menghitung jumlah mahasiswa dan rata-rata IPK berdasarkan program studi.
+1. **Koneksi database:** `require_once 'koneksi.php';` digunakan untuk menghubungkan program dengan database MySQL.
+2. **INSERT:** Digunakan untuk memasukkan data mahasiswa ke dalam tabel `mahasiswa`.
+3. **SELECT:** Digunakan untuk menampilkan data mahasiswa berdasarkan filter program studi dan IPK.
+4. **UPDATE:** Digunakan untuk memperbarui nilai IPK mahasiswa berdasarkan NIM.
+5. **GROUP BY:** Digunakan untuk menghitung jumlah mahasiswa dan rata-rata IPK berdasarkan program studi.
 
 ## 4. Screenshot Sebelum dan Sesudah Modifikasi
 
-### Sebelum Modifikasi
+### Sebelum Modifikasi 2
 
-Tempelkan screenshot program asli dari Pertemuan 3 di bagian ini.
+Screenshot ini menunjukkan hasil program setelah Modifikasi 1 dan sebelum penambahan predikat IPK.
 
-### Sesudah Modifikasi
+![Screenshot Sebelum](Screenshot/sebelum.png)
 
-Tempelkan screenshot program `tugas4.php` setelah modifikasi dan screenshot hasil output saat program berhasil dijalankan.
+### Sesudah Modifikasi 2
+
+Screenshot ini menunjukkan hasil program setelah penambahan predikat IPK.
+
+![Screenshot Sesudah](Screenshot/sesudah.png)
 
 ## 5. Error dan Perbaikan
 
-**Contoh error:** Koneksi database gagal.
+**Error:** Data IPK tidak berhasil diperbarui karena NIM yang digunakan tidak sesuai dengan data mahasiswa.
 
-**Penyebab:** Nama database, username, password, atau konfigurasi koneksi tidak sesuai.
+**Penyebab:** NIM pada proses UPDATE sebelumnya adalah `2025003`, sedangkan NIM Budi Santoso pada data mahasiswa adalah `2026003`.
 
-**Langkah perbaikan:** Memeriksa konfigurasi pada `koneksi.php`, memastikan server MySQL aktif, dan memastikan database `akademik` tersedia.
-
-Catatan: Contoh error ini merupakan ilustrasi. Ganti dengan error yang benar-benar pernah muncul saat pengujian jika berbeda.
+**Langkah perbaikan:** Mengubah NIM pada proses UPDATE menjadi `2026003`, kemudian menjalankan kembali program untuk memastikan data berhasil diperbarui.
 
 ## 6. Kesimpulan
 
-Melalui tugas ini, saya mempelajari cara mengelola data mahasiswa menggunakan PHP dan MySQL. Modifikasi berupa validasi IPK, filter program studi, dan pengecekan hasil query membantu program menangani data dan kondisi kesalahan dengan lebih baik.
+Melalui tugas ini, saya mempelajari cara mengelola data mahasiswa menggunakan PHP dan MySQL. Modifikasi berupa validasi IPK, filter program studi, dan penentuan predikat IPK membuat program dapat menangani data mahasiswa dengan lebih baik.
