@@ -1,13 +1,15 @@
+
 <?php
 $host = '127.0.0.1';
 $user = 'root';
 $password = '';
-$dbname = 'akademik1';
+$dbname = 'akademik';
 
 $koneksi = mysqli_connect($host, $user, $password, $dbname);
 
 if (!$koneksi) {
-    die("Koneksi gagal: " . mysqli_connect_error());
+    die("Koneksi database gagal: " . mysqli_connect_error());
 }
-echo("koneksi ke server mysql berhasil!\n");
+
+mysqli_set_charset($koneksi, 'utf8mb4');
 ?>

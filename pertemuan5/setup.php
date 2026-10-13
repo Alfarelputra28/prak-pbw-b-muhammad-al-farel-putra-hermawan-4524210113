@@ -1,5 +1,6 @@
+
 <?php
-include "koneksi.php";
+require_once "koneksi.php";
 
 $sql = "CREATE TABLE IF NOT EXISTS mahasiswa (
     nim VARCHAR(20) PRIMARY KEY,
@@ -10,11 +11,10 @@ $sql = "CREATE TABLE IF NOT EXISTS mahasiswa (
     ipk DECIMAL(3,2) NOT NULL
 )";
 
-$query = mysqli_query($koneksi, $sql);
-
-if ($query) {
-    echo "Tabel mahasiswa berhasil dibuat";
+if (mysqli_query($koneksi, $sql)) {
+    echo "Tabel mahasiswa berhasil dibuat atau sudah tersedia.";
+    echo "<br><a href='form.php'>Buka Form Mahasiswa</a>";
 } else {
-    echo "Tabel mahasiswa gagal dibuat: " . mysqli_error($koneksi);
+    echo "Tabel gagal dibuat: " . mysqli_error($koneksi);
 }
 ?>
