@@ -74,7 +74,7 @@ Database digunakan untuk menyimpan data produk, harga, dan stok.
 
 ### 1. Halaman Daftar Produk
 
-![Halaman Daftar Produk](screenshots/daftar-produk.png)
+![](screenshots/daftar-produk.png)
 
 ### 2. Halaman Tambah Produk
 
