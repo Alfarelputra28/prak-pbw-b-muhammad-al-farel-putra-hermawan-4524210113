@@ -1,12 +1,12 @@
 <?php
-$host = '127.0.0.1';
-$user = 'root';
-$password = '';
-$dbname = 'akademik';
+$host = "localhost";
+$user = "root";
+$password = "";
+$database = "penjualan_mvc";
 
-$koneksi = mysqli_connect($host, $user, $password, $dbname);
+$conn = mysqli_connect($host, $user, $password, $database);
 
-if (!$koneksi) {
-    die("Koneksi gagal: " . mysqli_connect_error());
+if (!$conn) {
+    die("Koneksi database gagal: " . mysqli_connect_error());
 }
 ?>
