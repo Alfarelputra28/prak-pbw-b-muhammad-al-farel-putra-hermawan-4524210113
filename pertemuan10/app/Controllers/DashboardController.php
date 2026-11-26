@@ -3,8 +3,9 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use CodeIgniter\HTTP\ResponseInterface;
 
-class Dashboard extends BaseController
+class DashboardController extends BaseController
 {
     public function index()
     {
@@ -14,6 +15,6 @@ class Dashboard extends BaseController
             'jumlahMK' => 40,
             'jumlahKRS' => 350
         ];
-        return view('dashboard', $data);
+        return view( 'dashboard', $data);
     }
 }
