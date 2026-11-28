@@ -1,0 +1,223 @@
+:root {
+    color-scheme: dark;
+    --app-bg: #111827;
+    --app-surface: #1b2637;
+    --app-surface-raised: #202e42;
+    --app-border: #334155;
+    --app-text: #e8edf5;
+    --app-muted: #9aa8bb;
+    --app-accent: #6d83f2;
+    --app-accent-hover: #8295ff;
+}
+
+.app-shell {
+    min-height: 100vh;
+    color: var(--app-text);
+    background:
+        radial-gradient(ellipse at 12% 0%, rgba(74, 99, 177, .14), transparent 34rem),
+        var(--app-bg);
+}
+
+.app-navbar {
+    min-height: 68px;
+    background: rgba(18, 28, 44, .94);
+    border-bottom: 1px solid rgba(148, 163, 184, .14);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .12);
+}
+
+.app-navbar .navbar-brand {
+    color: #f3f6fc;
+    font-weight: 650;
+    letter-spacing: .01em;
+}
+
+.app-shell main {
+    max-width: 1180px;
+}
+
+.app-shell h1 {
+    color: #f1f5fb;
+    font-weight: 650;
+    letter-spacing: -.025em;
+}
+
+.app-shell .text-secondary {
+    color: var(--app-muted) !important;
+}
+
+.app-shell .card {
+    color: var(--app-text);
+    background-color: var(--app-surface);
+    border: 1px solid var(--app-border);
+    border-radius: 16px;
+    box-shadow: 0 16px 38px rgba(0, 0, 0, .18) !important;
+}
+
+.app-shell .table {
+    --bs-table-bg: transparent;
+    --bs-table-color: var(--app-text);
+    --bs-table-border-color: rgba(148, 163, 184, .14);
+    --bs-table-striped-bg: rgba(255, 255, 255, .025);
+    --bs-table-striped-color: var(--app-text);
+    --bs-table-hover-bg: rgba(109, 131, 242, .09);
+    --bs-table-hover-color: #f5f7ff;
+    margin-bottom: 0;
+}
+
+.app-shell .table > :not(caption) > * > * {
+    padding: .95rem 1rem;
+    vertical-align: middle;
+}
+
+.app-shell .table > thead.table-primary > tr > th {
+    color: #dce5f5;
+    background-color: #25344a;
+    border-bottom-color: #40516b;
+    font-size: .78rem;
+    font-weight: 650;
+    letter-spacing: .055em;
+    text-transform: uppercase;
+}
+
+.app-shell .table tbody tr:last-child > * {
+    border-bottom: 0;
+}
+
+.app-shell .btn {
+    border-radius: 10px;
+    font-weight: 550;
+    transition: background-color .16s ease, border-color .16s ease, color .16s ease, box-shadow .16s ease, transform .16s ease;
+}
+
+.app-shell .btn:hover {
+    transform: translateY(-1px);
+}
+
+.app-shell .btn-primary {
+    color: #fff;
+    background-color: var(--app-accent);
+    border-color: var(--app-accent);
+    box-shadow: 0 5px 14px rgba(109, 131, 242, .18);
+}
+
+.app-shell .btn-primary:hover,
+.app-shell .btn-primary:focus-visible {
+    background-color: var(--app-accent-hover);
+    border-color: var(--app-accent-hover);
+}
+
+.app-shell .btn-outline-primary {
+    color: #aab8ff;
+    border-color: #7181d6;
+}
+
+.app-shell .btn-outline-primary:hover {
+    color: #fff;
+    background-color: #586bd0;
+    border-color: #586bd0;
+}
+
+.app-shell .btn-outline-secondary {
+    color: #c5cfdd;
+    border-color: #526176;
+}
+
+.app-shell .btn-outline-secondary:hover {
+    color: #fff;
+    background-color: #35445a;
+    border-color: #65758b;
+}
+
+.app-shell .btn-outline-danger {
+    color: #ff9a9d;
+    border-color: #a94d5a;
+}
+
+.app-shell .btn-outline-danger:hover {
+    color: #fff;
+    background-color: #a94352;
+    border-color: #a94352;
+}
+
+.app-shell .form-label {
+    color: #d8e0ec;
+    font-size: .92rem;
+    font-weight: 550;
+}
+
+.app-shell .form-control {
+    min-height: 46px;
+    color: var(--app-text);
+    background-color: #131d2b;
+    border: 1px solid #3a4a60;
+    border-radius: 10px;
+}
+
+.app-shell .form-control:focus {
+    color: #f3f6fc;
+    background-color: #151f2f;
+    border-color: #8292f6;
+    box-shadow: 0 0 0 .22rem rgba(109, 131, 242, .2);
+}
+
+.app-shell .form-control::placeholder {
+    color: #8290a4;
+}
+
+.app-shell .alert {
+    border-radius: 12px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .12);
+}
+
+.app-shell .alert-success {
+    color: #c8f2dc;
+    background-color: #183c32;
+    border-color: #2b6953;
+}
+
+.app-shell .alert-success .btn-close {
+    filter: invert(1) grayscale(100%) brightness(1.7);
+}
+
+.app-shell .alert-danger {
+    color: #ffd2d3;
+    background-color: #452932;
+    border-color: #804550;
+}
+
+@media (max-width: 575.98px) {
+    .app-navbar {
+        min-height: 60px;
+    }
+
+    .app-shell main.container {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    .app-shell h1.h2 {
+        font-size: 1.45rem;
+    }
+
+    .app-shell .table > :not(caption) > * > * {
+        padding: .8rem .75rem;
+    }
+
+    .app-shell .table {
+        font-size: .9rem;
+    }
+
+    .app-shell main > .d-flex {
+        align-items: flex-start !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .app-shell .btn {
+        transition: none;
+    }
+
+    .app-shell .btn:hover {
+        transform: none;
+    }
+}
